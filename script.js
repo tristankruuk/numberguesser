@@ -14,12 +14,19 @@ function Guess(e) {
     if (value > 1000) {
       alert("Number is too big");
       e.target.value = "";
-    } else {
+    } 
+    
+    else {
       GuessedNumber = value;
 
       if (value == Number) {
+        const count = document.getElementsByClassName("insertion").length;
         const success = document.createElement("div");
-        success.textContent = `You guessed the number! It was ${Number}`;
+        success.textContent = `You guessed the number in ${ count + 1 } tries! The number was ${Number}`;
+        success.className = "success";
+
+        document.body.appendChild(success);
+        e.target.value = "";
       } 
       
       else if (value > Number) {
@@ -28,13 +35,13 @@ function Guess(e) {
         guess.className = "insertion";
 
         const hint = document.createElement("div");
-        hint.className = "wrong-hint-container"
+        hint.className = "wrong-hint-container";
         const triangle = document.createElement("div");
-        triangle.className = "lower-hint-triangle"
+        triangle.className = "lower-hint-triangle";
 
         insertion.appendChild(guess);
-        guess.appendChild(hint)
-        hint.appendChild(triangle)
+        guess.appendChild(hint);
+        hint.appendChild(triangle);
         e.target.value = "";
       } 
       
@@ -44,13 +51,13 @@ function Guess(e) {
         guess.className = "insertion";
 
         const hint = document.createElement("div");
-        hint.className = "wrong-hint-container"
+        hint.className = "wrong-hint-container";
         const triangle = document.createElement("div");
-        triangle.className = "higher-hint-triangle"
+        triangle.className = "higher-hint-triangle";
 
         insertion.appendChild(guess);
-        guess.appendChild(hint)
-        hint.appendChild(triangle)
+        guess.appendChild(hint);
+        hint.appendChild(triangle);
         e.target.value = "";
       }
     }
